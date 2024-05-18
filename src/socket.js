@@ -1,5 +1,5 @@
 import io from "../server.js";
-import { getTalk } from "./talksDb.js";
+import { getTalk } from "./database/talksDb.js";
 
 io.on("connection", (socket) => {
     console.log("A client has connected! ID: ", socket.id);

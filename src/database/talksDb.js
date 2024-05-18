@@ -1,5 +1,8 @@
-import { talksCollection } from "./dbConnect.js";
+import { connectToDatabase } from "./dbConnect.js";
 import { ObjectId } from "mongodb";
+
+const db = await connectToDatabase();
+const talksCollection = db.collection("talks");
 
 export const getTalk = async (talkId) => {
     const id = new ObjectId(talkId);

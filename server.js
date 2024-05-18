@@ -2,7 +2,7 @@ import "dotenv/config";
 import http from "http";
 import app from "./src/app.js";
 import { Server } from "socket.io";
-import "./src/dbConnect.js"
+import "./src/database/dbConnect.js"
 
 const PORT = process.env.PORT || 3000;
 
