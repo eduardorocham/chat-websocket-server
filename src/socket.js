@@ -8,4 +8,8 @@ io.on("connection", (socket) => {
         const talk = await getTalk(arg);
         callback(talk);
     });
+
+    socket.on("send_message", async (arg, callback) => {
+        console.log(arg);
+    });
 });
