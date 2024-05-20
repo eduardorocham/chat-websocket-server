@@ -2,7 +2,7 @@
 import { connectToDatabase } from "./dbConnect.js";
 
 async function seedDB() {
-    const db = await connectToDatabase(); 
+    const db = await connectToDatabase();
 
     try {
         const usersCollection = db.collection('users');
@@ -83,9 +83,6 @@ async function seedDB() {
 
     } catch (err) {
         console.error('Seending error database:', err);
-    } finally {
-        await db.close();
-        console.log('Connection closed');
     }
 }
 

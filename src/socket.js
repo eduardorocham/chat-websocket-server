@@ -1,5 +1,5 @@
 import io from "../server.js";
-import { getTalk } from "./database/talksDb.js";
+import { getTalk, addMessageToTalk } from "./database/talksDb.js";
 
 io.on("connection", (socket) => {
     console.log("A client has connected! ID: ", socket.id);
@@ -9,7 +9,9 @@ io.on("connection", (socket) => {
         callback(talk);
     });
 
-    socket.on("send_message", async (arg, callback) => {
-        console.log(arg);
+    socket.on("send_message", async (messageObject, callback) => {
+        const { talk_id, message } = messageObject;
+        const updatedTalk = await addMessageToTalk(talk_id, message);
+        callback(updatedTalk);
     });
 });
